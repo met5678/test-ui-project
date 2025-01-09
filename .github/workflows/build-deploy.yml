@@ -10,8 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - StandaloneOSX
-          - WebGL
+            - StandaloneOSX
+            - StandaloneLinux64
+            - WebGL
     steps:
       - name: Discord Workflow Start Notification
         env:
