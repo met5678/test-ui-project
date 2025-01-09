@@ -10,6 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
+            - StandaloneOSX
+            - StandaloneLinux64
+            - WebGL
 
           - StandaloneOSX
           - WebGL
@@ -69,6 +72,9 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+            - StandaloneOSX
+            - StandaloneLinux64
+            - WebGL
 
           - StandaloneOSX
           - WebGL
