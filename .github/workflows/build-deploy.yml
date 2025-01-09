@@ -10,10 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-\t\t\t\t\t- StandaloneOSX
-\t\t\t\t\t- StandaloneWindows64
-\t\t\t\t\t- StandaloneLinux64
-\t\t\t\t\t- WebGL
+            - StandaloneOSX
+            - StandaloneLinux64
+            - WebGL
     steps:
       - name: Discord Workflow Start Notification
         env:
@@ -70,10 +69,14 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-\t\t\t\t\t- StandaloneOSX
-\t\t\t\t\t- StandaloneWindows64
-\t\t\t\t\t- StandaloneLinux64
-\t\t\t\t\t- WebGL
+            - StandaloneOSX
+            - StandaloneLinux64
+            - WebGL
+
+          - StandaloneOSX
+          - WebGL
+
+      - name: Change Permissions (Mac Only)
         if: ${{ matrix.targetPlatform == 'StandaloneOSX' }}
         run: |
           sudo chmod +x build/${{ matrix.targetPlatform }}/StandaloneOSX.app/Contents/MacOS/*
