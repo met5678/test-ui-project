@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test License
-        run: echo ${{ secrets.UNITY_EMAIL }} && echo ${{ secrets.UNITY_Password }} && echo ${{ secrets.UNITY_LICENSE }}
+        run: echo ${{ secrets.UNITY_EMAIL }} && echo ${{ secrets.UNITY_PASSWORD }}
       # Request manual activation file
       - name: Unity - Activate
         id: getManualLicenseFile
