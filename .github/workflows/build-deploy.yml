@@ -10,9 +10,10 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-            - StandaloneOSX
-            - StandaloneLinux64
-            - WebGL
+          - StandaloneOSX
+          - StandaloneWindows64
+          - StandaloneLinux64
+          - WebGL
     steps:
       - name: Discord Workflow Start Notification
         env:
@@ -69,12 +70,6 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-            - StandaloneOSX
-            - StandaloneLinux64
-            - WebGL
-
-          - StandaloneOSX
-          - WebGL
 
       - name: Change Permissions (Mac Only)
         if: ${{ matrix.targetPlatform == 'StandaloneOSX' }}
